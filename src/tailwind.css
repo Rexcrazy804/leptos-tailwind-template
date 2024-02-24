@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply bg-ctp-base
+  }
+  section {
+    @apply h-screen
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
