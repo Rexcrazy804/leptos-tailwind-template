@@ -1,10 +1,3 @@
-use leptos::{
-    component,
-    view,
-    create_signal,
-    IntoView, SignalUpdate, SignalGet,
-};
-
 // use serde::{Deserialize, Serialize};
 // use serde_wasm_bindgen::to_value;
 // use wasm_bindgen::prelude::*;
@@ -21,6 +14,13 @@ use leptos::{
 //     name: &'a str,
 // }
 //
+
+use leptos::{
+    component,
+    view,
+    create_signal,
+    IntoView, SignalUpdate, SignalGet,
+};
 use leptos_router::{
     Router,
     Routes,
@@ -42,13 +42,13 @@ pub fn App() -> impl IntoView {
 #[component]
 fn Home() -> impl IntoView {
     view! {
-        <section> // tailwind.css file defines a defualt class for sections as h-screen
+        <section> // tailwind.css file defines a defualt utility class for sections: h-screen
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <a
                     class="text-pink-300 text-5xl text-center hover:text-pink-400 active:text-pink-500 transition-all duration-500"
                     href="/love"
                 >
-                    "Hello World"
+                    "Hello World!"
                 </a>
             </div>
         </section>
@@ -71,11 +71,11 @@ fn Love() -> impl IntoView {
                 >
                 {
                     move || {
-                        let times = match count.get() {
+                        let count = count.get();
+                        let times = match count {
                             1 => "".into(),
                             _ => {
-                                "x".to_string() + &count.get().to_string()
-                                + &count.get().to_string().chars().fold(String::new(), |acc, _| acc + "!")
+                                "x".to_string() + &count.to_string() + &"!".repeat(count.to_string().len())
                             },
                         };
                         format!("I <3 Leptos {times}")
@@ -84,7 +84,7 @@ fn Love() -> impl IntoView {
                 </button>
             </div>
         </section>
-        <section> // tailwind.css file defines a defualt class for sections as h-screen
+        <section>
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <a
                     class="text-pink-300 text-5xl text-center hover:text-pink-400 active:text-pink-500 transition-all duration-500"
