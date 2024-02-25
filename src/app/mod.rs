@@ -15,17 +15,8 @@
 // }
 //
 
-use leptos::{
-    component,
-    view,
-    create_signal,
-    IntoView, SignalUpdate, SignalGet,
-};
-use leptos_router::{
-    Router,
-    Routes,
-    Route,
-};
+use leptos::{component, create_signal, view, IntoView, SignalGet, SignalUpdate};
+use leptos_router::{Route, Router, Routes};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -42,10 +33,10 @@ pub fn App() -> impl IntoView {
 #[component]
 fn Home() -> impl IntoView {
     view! {
-        <section> // tailwind.css file defines a defualt utility class for sections: h-screen
+        <section> // section has h-screen applied by default (refer tailwind.css file)
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <a
-                    class="text-pink-300 text-5xl text-center hover:text-pink-400 active:text-pink-500 transition-all duration-500"
+                    class="text-pink-400 text-5xl text-center hover:text-pink-300 active:text-pink-500 transition-all duration-500"
                     href="/love"
                 >
                     "Hello World!"
@@ -58,36 +49,33 @@ fn Home() -> impl IntoView {
 #[component]
 fn Love() -> impl IntoView {
     let (count, set_count) = create_signal(1);
-    let update_count = move |_| {
-        set_count.update(|c| *c += 1)
-    };
+    let update_count = move |_| set_count.update(|c| *c += 1);
 
     view! {
-        <section> 
+        <section>
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <button
-                    class="text-pink-300 text-5xl text-center hover:text-pink-400 active:text-pink-500 transition-all animate-bounce"
-                    on:click = update_count
+                    class="text-pink-400 text-5xl text-center hover:text-pink-300 active:text-pink-500 transition-all animate-bounce"
+                    on:click=update_count
                 >
-                {
-                    move || {
+                    {move || {
                         let count = count.get();
+                        let count_str = &count.to_string();
                         let times = match count {
                             1 => "".into(),
-                            _ => {
-                                "x".to_string() + &count.to_string() + &"!".repeat(count.to_string().len())
-                            },
+                            _ => "x".to_string() + count_str + &"!".repeat(count_str.len()),
                         };
                         format!("I <3 Leptos {times}")
-                    }
-                }
+                    }}
+
                 </button>
             </div>
         </section>
         <section>
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <a
-                    class="text-pink-300 text-5xl text-center hover:text-pink-400 active:text-pink-500 transition-all duration-500"
+                    class=
+                        "text-pink-400 text-5xl text-center hover:text-pink-300 active:text-pink-500 transition-all duration-500 bg-ctp-surface0 rounded-2xl  hover:rounded-sm p-3"
                     href="/"
                 >
                     "Go Home!"

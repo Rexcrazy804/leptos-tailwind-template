@@ -7,9 +7,7 @@ use leptos::{
 
 fn main() {
     mount_to_body(|| {
-        view! {
-            <app::App/>
-        }
+        view! { <app::App/> }
     })
 }
 

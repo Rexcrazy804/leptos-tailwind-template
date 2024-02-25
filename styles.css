@@ -473,6 +473,15 @@ video {
   --ctp-crust: 17, 17, 27;
 }
 
+body {
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ctp-base), var(--tw-bg-opacity));
+}
+
+section {
+  height: 100vh;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -573,25 +582,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-body {
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ctp-base), var(--tw-bg-opacity));
-}
-
-section {
-  height: 100vh;
-}
-
 .flex {
   display: flex;
 }
 
 .h-full {
   height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 @keyframes bounce {
@@ -622,6 +618,15 @@ section {
   justify-content: center;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.bg-ctp-surface0 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ctp-surface0), var(--tw-bg-opacity));
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -639,9 +644,9 @@ section {
   line-height: 1;
 }
 
-.text-pink-300 {
+.text-pink-400 {
   --tw-text-opacity: 1;
-  color: rgb(249 168 212 / var(--tw-text-opacity));
+  color: rgb(244 114 182 / var(--tw-text-opacity));
 }
 
 .transition-all {
@@ -658,9 +663,13 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.hover\:text-pink-400:hover {
+.hover\:rounded-sm:hover {
+  border-radius: 0.125rem;
+}
+
+.hover\:text-pink-300:hover {
   --tw-text-opacity: 1;
-  color: rgb(244 114 182 / var(--tw-text-opacity));
+  color: rgb(249 168 212 / var(--tw-text-opacity));
 }
 
 .active\:text-pink-500:active {
