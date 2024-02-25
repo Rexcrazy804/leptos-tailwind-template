@@ -75,7 +75,7 @@ fn Love() -> impl IntoView {
             <div class="h-full flex flex-col items-center justify-center font-mono p-3">
                 <a
                     class=
-                        "text-pink-400 text-5xl text-center hover:text-pink-300 active:text-pink-500 transition-all duration-500 bg-ctp-surface0 rounded-2xl  hover:rounded-sm p-3"
+                        "text-5xl text-center text-pink-400 active:text-pink-500 transition-all duration-500 bg-ctp-surface0 rounded-sm p-3 drop-shadow-2xl active:translate-y-2 hover:-translate-y-2"
                     href="/"
                 >
                     "Go Home!"

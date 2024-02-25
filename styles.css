@@ -590,6 +590,10 @@ section {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
@@ -618,8 +622,8 @@ section {
   justify-content: center;
 }
 
-.rounded-2xl {
-  border-radius: 1rem;
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
 .bg-ctp-surface0 {
@@ -649,6 +653,11 @@ section {
   color: rgb(244 114 182 / var(--tw-text-opacity));
 }
 
+.drop-shadow-2xl {
+  --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -663,13 +672,19 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.hover\:rounded-sm:hover {
-  border-radius: 0.125rem;
+.hover\:-translate-y-2:hover {
+  --tw-translate-y: -0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .hover\:text-pink-300:hover {
   --tw-text-opacity: 1;
   color: rgb(249 168 212 / var(--tw-text-opacity));
+}
+
+.active\:translate-y-2:active {
+  --tw-translate-y: 0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .active\:text-pink-500:active {
