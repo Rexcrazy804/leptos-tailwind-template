@@ -10,12 +10,14 @@ address = "127.0.0.1"
 port = 1420
 open = false
 
+# This is a nushell specific configuration (comment this out if on other shells)
 [[hooks]]
 stage = "pre_build"
-# This is a nushell specific configuration
 command = "nu"
 command_arguments = ["-c", "npx tailwindcss -i ./src/tailwind.css -o ./styles.css"]
 
-# you will need to uncomment this for most shells
+# # you will need to uncomment this for most shells
+# [[hooks]]
+# stage = "pre_build"
 # command = "npx"
-# command_arguments = ["npx tailwindcss -i ./src/input.css -o ./output.css"]
+# command_arguments = ["tailwindcss -i ./src/input.css -o ./output.css"]
